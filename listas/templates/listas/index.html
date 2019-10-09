@@ -1,0 +1,9 @@
+{% if latest_congreso_list %}
+    <ul>
+    {% for congreso in latest_congreso_list %}
+        <li><a href="{% url 'listas:congresoDetail' congreso.id %}">{{ congreso.nombre }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay ningún congreso disponible.</p>
+{% endif %}
