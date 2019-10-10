@@ -17,3 +17,12 @@ class Congreso(models.Model):
     asistentes = models.ManyToManyField(Persona)
     def __str__(self):
         return self.nombre
+    def get_asistentes_values(self):
+
+        ret = ''
+
+        print(self.asistentes.all())
+
+        for asistente in self.asistentes.all():
+            ret = ret + asistente.nombre + ','
+        return ret[:-1]
