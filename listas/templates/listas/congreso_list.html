@@ -1,0 +1,14 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+    {% if congreso_list %}
+    <ul>
+    {% for congreso in congreso_list %}
+        <li><a href="{% url 'listas:congresoDetail' congreso.id %}">{{ congreso.nombre }}</a></li>
+    {% endfor %}
+    </ul>
+    {% else %}
+    <p>No hay ningún congreso disponible.</p>
+{% endif %}
+</body>
