@@ -1,3 +1,7 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
 <h1>Congreso de programación 2019</h1>
 <h2>Próximos congresos</h2>
 {% if latest_congreso_list %}
@@ -12,3 +16,4 @@
 <h2>Links importantes</h2>
 <p><a href="{% url 'listas:personasList' %}">Lista de asistentes</a></p>
 <p><a href="{% url 'listas:congresosList' %}">Lista de congresos</a></p>
+</body>
