@@ -8,8 +8,13 @@
     <p><b>Conferencista:</b> {{congreso.conferencista}}</p>
     <p><b>Fecha y hora:</b> {{congreso.fecha}}</p>
     <p><b>Asistentes</b>
-    {% for persona in congreso.asistentes.all %}
-        <p><li><a href="{% url 'listas:personaDetail' persona.id %}">{{ persona.nombre }}</a></li></p>
-    {% endfor %}    
-    <!-- <p><b>Asistentes:</b> {{ congreso.get_asistentes_values}}</p> -->
+        {% if congreso.asistentes.all %}
+        <ul>
+            {% for persona in congreso.asistentes.all %}
+                <li><a href="{% url 'listas:personaDetail' persona.id %}">{{ persona.nombre }}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <p> Este congreso no tiene asistentes </p>
+        {% endif %}
 </body>
