@@ -11,4 +11,8 @@
         </ul>
         
         <h3>Conferencias a asistir</h3>
+
+        {% for congreso in persona..all %}
+        <p><li><a href="{% url 'listas:personaDetail' persona.id %}">{{ persona.nombre }}</a></li></p>
+        {% endfor %}
 </body>
