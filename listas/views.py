@@ -11,7 +11,7 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         """Return the last five published questions."""
-        return Congreso.objects.order_by('-fecha')[:5]
+        return Congreso.objects.order_by('fecha')[:5]
 
 class CongresoList(generic.ListView):
     model = Congreso

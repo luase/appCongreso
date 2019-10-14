@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 </head>
 <body>
-    <h2>Informacion miembro</h1>
+    <h1>Informacion miembro</h1>
         <ul>
             <p><b>Nombre: </b>{{ persona }}</p>
             <p><b>Dirección: </b> {{persona.direccion}}</p>
@@ -10,5 +10,14 @@
             <p><b>Email:</b> {{persona.email}}</p>
         </ul>
         
-        <h3>Conferencias a asistir</h3>
+    <h2>Conferencias a asistir</h2>
+        <ul>
+        {% if persona.congreso_set.all %}
+            {% for congreso in persona.congreso_set.all %}
+                <li><a href="{% url 'listas:congresoDetail' congreso.id %}">{{ congreso.nombre }}</a></li>
+            {% endfor %}
+        {% else %}
+        <p>Esta persona no irá a ningún congreso.</p>
+        {% endif %}
+        </ul>
 </body>

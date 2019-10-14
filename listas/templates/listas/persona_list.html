@@ -1,0 +1,22 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+<!-- Titulo -->
+<h1>Asistentes a conferencias.</h1>
+ 
+<!-- Si existen elementos en lista de personas se muestra el contenido -->
+{% if persona_list %}
+    <ul>
+        
+    <!-- Ciclo que muetra cada  -->
+    {% for persona in persona_list %}
+        <li><a href="{% url 'listas:personaDetail' persona.id %}">{{ persona.nombre }}</a></li>
+    {% endfor %}
+
+    </ul>
+<!-- Si no existen muestra un mensaje de "error" -->
+{% else %}
+    <p>No hay ningún congreso disponible.</p>
+{% endif %}
+</body>
